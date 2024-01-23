@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+    <style>
+        td a{
+            text-decoration: none;
+        }
+    </style>
+   
+</head>
+<body style="background-image: url(https://imgtr.ee/images/2023/12/09/5c32ec3d3abbf19f56281f56f777c189.jpeg); background-repeat:repeat;background-size: cover;">
+    
+    <div class="bgImage"></div>
+    <h2 style=" font-family:Arial, Helvetica, sans-serif;">BEST DEALER FOR YOUR FOUR WHEELER</h2>
+    <P style="font-family:'Times New Roman', Times, serif;">'Uprade your ride with top-quality car accessories- your car, your style'</P>
+    <button><a href="{% url 'dashboard:login' %}">EXPLORE</a></button>
+    <img src="{% static 'image/az2.jpg' %}" alt="">
+    <table>
+        <tr>
+            <td><a href="">HOME</a></td>
+            <td><a href="{% url 'dashboard:contactus' %}">CONTACT</a></td>
+            <td><a href="{% url 'dashboard:aboutus' %}">ABOUT US</a></td>
+            <td><a href="{% url 'dashboard:signup' %}">SIGNUP</a></td>
+            <td><a href="{% url 'seller:seller_login' %}">SELLER LOGIN</a></td>
+        </tr>
+    </table>
+</div>
+
+</div>
+
+</body>
+</html>

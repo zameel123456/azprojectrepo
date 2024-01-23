@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border:1px solid rgb(83, 53, 53);
+            width: 500px;
+            height: 500px;
+            margin-left: 500px;
+            /* background-color:; */
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        td{
+            border: 1px solid black;
+            border-radius: 10px;
+            
+        }
+        input{
+            width: 150px;
+            margin-left: 30px;
+            border-radius: 5px;
+        }
+        button{
+            margin-left: 200px;
+            background-color: blueviolet;
+            color: white;
+        
+        }
+        h1{
+            text-align: center;
+            color: red;
+        }
+        a{
+            margin-left: 502px;
+            font-size: large;
+        }
+
+
+        
+       
+
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="{% url 'dashboard:home' %}">HOME</a>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+     </div>
+    <h1>UPDATE PRODUCT</h1>
+    <a href="{% url 'seller:addpdt' %}">DASHBOARD</a>
+   
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       
+        
+        <table>
+            <tr>
+                <td>PRODUCT NAME</td>
+                <td><input type="text" name="name" id="" value="{{product.name}}"></td>
+            </tr>
+            <tr>
+                <td>PRICE</td>
+                <td><input type="number" name="price" id="" value="{{product.price}}"></td>
+            </tr>
+            <tr>
+                <td>IMAGE</td>
+                <td> <img src="{{product.image.url}}" alt="" style="width: 150px; height: 150px;">
+                    <input type="file" name="image" id="" value="{{product.image.url}}" width="60px"></td>
+            </tr>
+            <tr>
+                <td>DESCRIPTION</td>
+                <td><input type="text" name="description" id="" value="{{product.description}}"></td>
+            </tr>
+            
+            <tr>
+                <td>CATEGORY</td>
+                <td>
+                    <select name="category" id="">
+                        {% for category in categories %}
+                        <option value="{{ category.id }}" style="padding-left: 10px;">{{category.name}}</option>
+                        {% endfor %}
+                        
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">update</button>
+                </td>
+            </tr>
+        </table>
+      
+        
+    </form>
+    
+</body>
+</html>

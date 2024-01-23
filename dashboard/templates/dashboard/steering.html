@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/wheels.css'%}">
+  <style>
+    .card {
+      margin-left: 100px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">AZ automotive</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'dashboard:home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dashboard:logout' %}">logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dashboard:cart' %}">CART</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      {% for i in product %}
+      <div class="col-md-4 col-sm-6">
+        <div class="card" style="width: 18rem;">
+          {% if i.image and i.image.url %}
+          <img src="{{i.image.url}}" class="card-img-top" alt="..." height="280px" width="250px">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{i.title}}</h5>
+            <p class="card-text">{{i.description}}</p>
+            <a href="#" class="btn btn-outline-success">${{i.price}}</a>
+            <form action="{% url 'dashboard:add_to_cart' i.id %}" method="post">
+              {% csrf_token %}
+              <div class="quantity" style="display: none;">
+                  <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 150px; margin-top: 0px; margin-left: 100px;">Add to cart</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+    </div>
+
+  </div>
+  <div class="footer">
+    <div class="row">
+      <div class="col-2">
+        <h4>ABOUT</h4>
+        <p>contact us</p>
+        <p>abouts</p>
+        <p>careers</p>
+        <p>AZ AUTOMOTIVE Stories</p>
+      </div>
+      <div class="col-2">
+        <h4>HELP</h4>
+        <p>payment</p>
+        <p>shipping</p>
+        <p>FAQ</p>
+      </div>
+      <div class="col-2">
+        <h4>CONSUMER POLICY</h4>
+        <p>cancellation and return</p>
+        <p>security</p>
+        <p>privacy</p>
+      </div>
+      <div class="col-2">
+        <h4>SOCIAL</h4>
+        <p>youtube</p>
+        <p>instagram</p>
+        <p>twitter</p>
+        <p>telegram</p>
+      </div>
+      <div class="col-2">
+        <h4>EMAIL</h4>
+        <p>AZ AUTOMATIVE PRIVATE LIMITED</p>
+        <P>azautomotive23@gmail.com</P>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

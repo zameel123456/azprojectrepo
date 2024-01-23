@@ -1,0 +1,19 @@
+.footer{
+    background-image: url(https://i.pinimg.com/564x/2b/a2/9c/2ba29c1b208b65082d9f5910c20a9995.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left:0px;
+    margin-top: 50px;
+}
+h4{
+    margin-left: 50px;
+    margin-top: 20px;
+    color: white;
+    font-style: italic;
+    
+}
+p{
+    margin-left: 50px;
+    margin-top: 20px;
+    /* color: white; */
+}

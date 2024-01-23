@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}">
+    <style>
+        .container{
+                height: 470px;
+                width: 411px;
+                /* border: 1px solid black; */
+                margin-left: 526px;
+                margin-top: 100px;
+                background-image: url();
+                background-repeat: no-repeat;
+}
+h2{
+    color: blueviolet;
+    margin-left: 143px;
+    margin-top: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100px;
+
+}
+input{
+    width: 337px;
+    color: black;
+    background-color:white;
+    margin-left: 35px;
+    margin-top: 6px;
+
+}
+label{
+    margin-left: 20px;
+    color:black;
+   
+}
+button{
+    background-color: blueviolet;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 131px;
+    color: white;
+    margin-left: 137px;
+    border-radius: 5px;
+    margin-top: 1px;
+}
+.az{
+    margin-left: 700px;
+}
+.footer{
+    background-image: url(https://i.pinimg.com/564x/2b/a2/9c/2ba29c1b208b65082d9f5910c20a9995.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left:0px;
+    margin-top: 50px;
+}
+h4{
+    margin-left: 50px;
+    margin-top: 20px;
+    color: white;
+    font-style: oblique;
+    
+}
+p{
+    margin-left: 50px;
+    margin-top: 20px;
+}  
+a{
+
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 20px;
+}
+
+
+    </style>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="{% url 'dashboard:home' %}">HOME</a>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+     </div>
+
+
+
+ 
+
+                <div class="container">
+                        <h2>SIGN UP</h2>
+                        <form id="myForm" name="form1" onsubmit="return validateForm()" method="post">
+                                {% csrf_token %}
+                                <label for="name">Name:</label><br>
+                                <input type="text" id="name" name="name"><br><br>
+    
+                                <label for="email">Email:</label><br>
+                                <input type="email" id="email" name="email"><br><br>
+    
+                                <label for="mobile number">Mobile Number:</label><br>
+                                <input type="text" id="number" name="number"><br><br>
+    
+                                <label for="password">Create Password:</label><br>
+                                <input type="password" id="p1" name=""><br><br>
+    
+                                <label for="password">RE-enter Password:</label><br>
+                                <input type="password" id="p2" name="repass"><br><br>
+    
+                                <p id="error1" style="color: red;"></p>
+                                <button type="submit">Submit</button>
+                        </form>
+        
+
+                </div>
+            </div>
+            <div class="footer">
+                <div class="row">
+                    <div class="col-2">
+                        <h4>ABOUT</h4>
+                        <p>contact us</p>
+                        <p>abouts</p>
+                        <p>careers</p>
+                        <p>AZ AUTOMOTIVE Stories</p>
+                    </div>
+                    <div class="col-2">
+                        <h4>HELP</h4>
+                        <p>payment</p>
+                        <p>shipping</p>
+                        <p>FAQ</p>
+                    </div>
+                    <div class="col-2">
+                        <h4>CONSUMER POLICY</h4>
+                        <p>cancellation and return</p>
+                        <p>security</p>
+                        <p>privacy</p>
+                    </div>
+                    <div class="col-2">
+                        <h4>SOCIAL</h4>
+                        <p>youtube</p>
+                        <p>instagram</p>
+                        <p>twitter</p>
+                        <p>telegram</p>
+                    </div>
+                    <div class="col-2">
+                        <h4>EMAIL</h4>
+                        <p>AZ AUTOMATIVE PRIVATE LIMITED</p>
+                        <P>azautomotive23@gmail.com</P>
+    
+                    </div>
+                </div>
+            </div>
+  
+
+
+    <script src="{% static 'script/signup.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
